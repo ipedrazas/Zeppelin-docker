@@ -9,3 +9,7 @@ Core feature:
 
 
 To know more about Zeppelin, visit our web site [http://zeppelin-project.org](http://zeppelin-project.org) 
+
+To run Zeppelin execute:
+
+`docker run -it --rm -p 8080:8080 -p 8081:8081 ipedrazas/zeppelin`
