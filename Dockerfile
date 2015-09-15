@@ -1,8 +1,12 @@
-FROM java:7
+FROM maven:3.2-jdk-7
 MAINTAINER Ivan Pedrazas <ipedrazas@gmail.com>
 
-
-RUN apt-get update && apt-get -y install git maven npm && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN  \
+  export DEBIAN_FRONTEND=noninteractive && \
+  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
+  apt-get update && \
+  apt-get -y upgrade && \
+  apt-get install -y git npm
 
 RUN git clone https://github.com/apache/incubator-zeppelin.git /zeppelin
 
