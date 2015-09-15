@@ -4,12 +4,12 @@ MAINTAINER Ivan Pedrazas <ipedrazas@gmail.com>
 
 RUN apt-get update && apt-get -y install git maven npm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN git clone  https://github.com/NFLabs/zeppelin /zeppelin
+RUN git clone https://github.com/apache/incubator-zeppelin.git /zeppelin
 
 WORKDIR /zeppelin
-RUN mvn install -DskipTests -Dspark.version=1.3.0 -Dhadoop.version=2.3.0
+
+RUN mvn clean package -Pspark-1.4 -Dhadoop.version=2.2.0 -Phadoop-2.2 -DskipTests
 
 EXPOSE 8080
-EXPOSE 8081
 
 CMD ["bin/zeppelin.sh", "start"]
