@@ -12,7 +12,7 @@ RUN git clone https://github.com/apache/incubator-zeppelin.git /zeppelin
 
 WORKDIR /zeppelin
 
-RUN mvn clean package -Pspark-1.4 -Dhadoop.version=2.2.0 -Phadoop-2.2 -DskipTests
+RUN mvn clean package -Pcassandra-spark-1.5 -Dhadoop.version=2.6.0 -Phadoop-2.6 -DskipTests
 
 EXPOSE 8080
 
